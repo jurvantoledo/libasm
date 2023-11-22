@@ -14,3 +14,6 @@ int main()
 
     STRCMP("LOL", "LOL");
 }
+
+// https://sonictk.github.io/asm_tutorial/
+// https://blog.tomzhao.me/?p=115

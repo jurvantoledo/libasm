@@ -17,7 +17,8 @@
 
   - RIP — Pointer to next instruction to execute (“instruction pointer”), cannot be directly modified with mov 
           but can indirectly be modified by referencing with operations
-
+    
+    ```
     ; 64-bit [QWORD]
     R0  R1  R2  R3  R4  R5  R6  R7  R8  R9  R10  R11  R12  R13  R14  R15
     RAX RCX RDX RBX RSP RBP RSI RDI
@@ -36,7 +37,7 @@
 
     ; 128-bit (used for floating point operations mostly)
     XMM0 ... XMM15
-
+    ```
 
 ## Simple Instructions
   - mov — moves date from one location to another without modification, in the form:

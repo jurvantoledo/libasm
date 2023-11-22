@@ -1,28 +1,41 @@
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra
+NAME		= libasm.a
+CC			= gcc
+CFLAGS		= -Wall -Werror -Wextra
+NASM		= nasm
+NASM_FLAGS	= elf64
 
-SRC = src/ft_strlen.s
-OBJ = $(SRC:.s=.o)
+SRC			=	src/ft_strlen.s \
+				src/ft_strcmp.s
 
-NA = nasm
-NA_FLAGS = -f macho64
-NAME = libasm.a
+OBJ			= $(subst src, obj, $(SRC:.s=.o))
 
-%.o: %.s
-	$(NA) $(NA_FLAGS) $<
+all: dirs $(NAME)
 
-all:
-	$(NAME)
+dirs:
+	mkdir -p obj
+
+obj/%.o: src/%.s
+	$(NASM) -f $(NASM_FLAGS) -o $@ $<
+
 
 $(NAME): $(OBJ)
-			ar rcs $(NAME) $(OBJ)
+		ar rcs $(NAME) $(OBJ)
 
 clean:
-	rm -rf $(OBJ)
+	rm -rf obj
 
-fclean:
-	rm -rf $(NAME) $(OBJ)
+fclean: clean
+	rm -rf $(NAME)
 
-re:	fclean $(NAME)
+re:	fclean dirs $(NAME)
 
-.PHONY: all clean fclean re
+test: dirs $(NAME)
+	  $(CC) $(CFLAGS) -c main.c -o obj/main.o
+	  $(CC) -o main -I include obj/main.o $(NAME)
+	  $(RM) obj/main.o
+	  @echo "--------------------------------"
+	  @./main
+	  @echo "--------------------------------"
+	  @rm -rf main obj $(NAME)
+
+.PHONY: all clean fclean re test

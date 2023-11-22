@@ -1,4 +1,4 @@
-## x86 Registers
+## 64-bit [QWORD]
   - RAX — Stores function return values
 
   - RBX — Base pointer to the data section
@@ -23,7 +23,7 @@
   - mov — moves date from one location to another without modification, in the form:
 
     `mov destination, source`
-    
+
   - lea — load effective address, calculates indirect address and stores the address (not the memory contents) in the destination
 
     `lea destination, value`

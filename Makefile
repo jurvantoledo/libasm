@@ -5,7 +5,8 @@ NASM		= nasm
 NASM_FLAGS	= elf64
 
 SRC			=	src/ft_strlen.s \
-				src/ft_strcmp.s
+				src/ft_strcmp.s \
+				src/ft_strcpy.s
 
 OBJ			= $(subst src, obj, $(SRC:.s=.o))
 

@@ -8,11 +8,23 @@
 
 int main()
 {
+    // char buffer[100];
+    // int i = 0;
+
+    // while (i < 100)
+	// 	buffer[i++] = 0;
+
     STRLEN("YOYO");
     STRLEN("YOYOYO");
     STRLEN("OH SHIT IT WORKS");
 
     STRCMP("LOL", "LOL");
+    STRCMP("OKAYLEGO", "OKAYLEGO");
+    STRCMP("WTF", "WTV");
+    STRCMP("HAHA", "HHAA");
+
+    printf("%s\n", ft_strcpy("lol", "shit"));
+
 }
 
 // https://sonictk.github.io/asm_tutorial/

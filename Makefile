@@ -1,13 +1,16 @@
 NAME		= libasm.a
 CC			= gcc
-CFLAGS		= -Wall -Werror -Wextra
+CFLAGS		= 
 NASM		= nasm
 NASM_FLAGS	= elf64
 
 SRC			=	src/ft_strlen.s \
 				src/ft_strcmp.s \
-				src/ft_strcpy.s
-
+				src/ft_strcpy.s \
+				src/ft_strdup.s \
+				src/ft_read.s \
+				src/ft_write.s
+			
 OBJ			= $(subst src, obj, $(SRC:.s=.o))
 
 all: dirs $(NAME)
@@ -32,7 +35,7 @@ re:	fclean dirs $(NAME)
 
 test: dirs $(NAME)
 	  $(CC) $(CFLAGS) -c main.c -o obj/main.o
-	  $(CC) -o main -I include obj/main.o $(NAME)
+	  $(CC) -o main -no-pie -I include obj/main.o $(NAME)
 	  $(RM) obj/main.o
 	  @echo "--------------------------------"
 	  @./main

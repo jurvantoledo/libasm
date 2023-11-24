@@ -23,7 +23,8 @@ int main()
     STRCMP("WTF", "WTV");
     STRCMP("HAHA", "HHAA");
 
-    printf("%s\n", ft_strcpy("lol", "shit"));
+    printf("dest = %s src = %s copy = %s\n", "lol", "shit", ft_strcpy("lol", "shit"));
+    printf("dest = %s src = %s copy = %s\n", "hoi", "doei", ft_strcpy("hoi", "doei"));
 
 }
 

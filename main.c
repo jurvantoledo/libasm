@@ -34,10 +34,10 @@ int main()
     STRDUP("");
 
     ssize_t lol = ft_read(STDIN_FILENO, buffer, lol);
-    printf("%s, %ld", buffer, lol);
+    printf("%s, %ld\n", buffer, lol);
 
     ssize_t shit = ft_write(STDOUT_FILENO, buffer, shit);
-    printf("%s, %ld", buffer, shit);
+    printf("%s, %ld\n", buffer, shit);
 }
 
 // https://sonictk.github.io/asm_tutorial/
